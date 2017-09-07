@@ -1,0 +1,241 @@
+.rule-lns,
+.primary {
+  opacity: 1;
+}
+.rule-lns,
+.rule-lns :first-child,
+.rule-lns :last-child,
+.primary,
+.primary line,
+.secondary,
+.secondary line,
+.cntr-lns line,
+text,
+#grid,
+.drawing {
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  stroke-width: 0;
+}
+.rule-lns :first-child {
+  animation-name: extend-rt;
+  animation-duration: 0.75s;
+  transform-origin: left;
+}
+.rule-lns :last-child {
+  animation-name: extend-dn;
+  animation-duration: 0.75s;
+  transform-origin: top;
+}
+.primary .h-lns line {
+  animation-name: extend-rt-pr;
+  animation-duration: 1.25s;
+  transform-origin: left;
+}
+.primary .h-lns line:nth-child( 1 ) { animation-delay: 0s }
+.primary .h-lns line:nth-child( 2 ) { animation-delay: 0.125s }
+.primary .h-lns line:nth-child( 3 ) { animation-delay: 0.25s }
+.primary .h-lns line:nth-child( 4 ) { animation-delay: 0.275s }
+.primary .h-lns line:nth-child( 5 ) { animation-delay: 0.35s }
+.primary .h-lns line:nth-child( 6 ) { animation-delay: 0.4s }
+.primary .h-lns line:nth-child( 7 ) { animation-delay: 0.45s }
+.primary .h-lns line:nth-child( 8 ) { animation-delay: 0.5s }
+.primary .h-lns line:nth-child( 9 ) { animation-delay: 0.65s }
+
+.secondary line,
+text {
+  animation-fill-mode: forwards;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  opacity: 0;
+}
+.cntr-lns line {
+  transform-origin: center;
+}
+.cntr-lns line:first-child {
+  animation-name: extend-rt-ct;
+  animation-duration: 0.25s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+.cntr-lns line:last-child {
+  animation-name: extend-dn-ct;
+  animation-duration: 0.25s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+.secondary line:nth-child( 1 ) { animation-delay: 0s }
+.secondary line:nth-child( 2 ) { animation-delay: 0.125s }
+.secondary line:nth-child( 3 ) { animation-delay: 0.25s }
+.secondary line:nth-child( 4 ) { animation-delay: 0.275s }
+.secondary line:nth-child( 5 ) { animation-delay: 0.35s }
+.secondary line:nth-child( 6 ) { animation-delay: 0.4s }
+.secondary line:nth-child( 7 ) { animation-delay: 0.45s }
+.secondary line:nth-child( 8 ) { animation-delay: 0.5s }
+.secondary line:nth-child( 9 ) { animation-delay: 0.65s }
+.secondary line:nth-child( 10 ) { animation-delay: 0.75s }
+.secondary line:nth-child( 1 ) { animation-delay: 0.375s; }
+
+.primary .v-lns line {
+  animation-name: extend-dn-pr;
+  animation-duration: 1s;
+  transform-origin: top;
+}
+text {
+  opacity: 0;
+}
+#grid {
+  animation-name: init;
+  animation-duration: 2s;
+}
+.drawing {
+  animation-name: scale;
+  animation-duration: 1s;
+  transform-origin: center;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+text:nth-child( 1 ){ animation-delay: 0.1s }
+text:nth-child( 2 ){ animation-delay: 0.125s }
+text:nth-child( 3 ){ animation-delay: 0.25s }
+text:nth-child( 4 ){ animation-delay: 0.275s }
+text:nth-child( 5 ){ animation-delay: 0.35s }
+text:nth-child( 6 ){ animation-delay: 0.4s }
+text:nth-child( 7 ){ animation-delay: 0.45s }
+text:nth-child( 8 ){ animation-delay: 0.5s }
+text:nth-child( 9 ){ animation-delay: 0.65s }
+text:nth-child( 10 ){ animation-delay: 0.75s }
+
+.primary .v-lns line:nth-child( 1 ) { animation-delay: 0s }
+.primary .v-lns line:nth-child( 2 ) { animation-delay: 0.125s }
+.primary .v-lns line:nth-child( 3 ) { animation-delay: 0.25s }
+.primary .v-lns line:nth-child( 4 ) { animation-delay: 0.275s }
+.primary .v-lns line:nth-child( 5 ) { animation-delay: 0.35s }
+.primary .v-lns line:nth-child( 6 ) { animation-delay: 0.4s }
+.primary .v-lns line:nth-child( 7 ) { animation-delay: 0.45s }
+.primary .v-lns line:nth-child( 8 ) { animation-delay: 0.5s }
+.primary .v-lns line:nth-child( 9 ) { animation-delay: 0.65s }
+.cntr-lns line {
+  stroke-width: 0.25;
+}
+.secondary line {
+  stroke-width: 0.0625;
+}
+.title, aside {
+  animation-name: pop;
+  animation-duration: 2s;
+}
+aside {
+  animation-delay: 0s;
+  animation-fill-mode: both;
+}
+.rule-lns,
+.cntr-lns,
+.primary,
+.secondary,
+.label,
+.drawing {
+  transition-property: transform, opacity;
+  transition-duration: 0.5s, 0.4s;
+  transform-origin: center;
+  transition-timing-function: cubic-bezier( 0.18, 0.89, 0.32, 1.28 );
+}
+.label {
+  transition-duration: 0.48s, 0.38s;
+}
+.out {
+  transform: scale( 1.15 );
+  opacity: 0;
+}
+.out.cntr-lns {
+  transform: translate( -0.75%, -0.75% ) scale( 3 )
+}
+.out.primary {
+  transform: scale( 2 );
+}
+.out.drawing {
+  transform: scale( 1.01 );
+}
+.title {
+  transform: scale( 1 );
+}
+
+@keyframes init {
+  0% { transform: translate( -50%, -50% ) scale( 10.5 ) }
+  100% { transform: translate( -50%, -50% ) scale( 10 ) }  
+}
+@keyframes scale {
+  0% { transform: scale( 0.95 ); opacity: 0 }
+  100% { transform: scale( 1 ); opacity: 1 }  
+}
+@keyframes appear {
+  0% { opacity: 0.25; transform: scale( 0.975 ) }
+  100% { opacity: 1; transform: scale( 1 ) }
+}
+@keyframes pop {
+  0% { opacity: 0 }
+  50% { opacity: 0 }
+  80% { opacity: 1 }
+  100% { opacity: 1 }
+}
+@keyframes extend-rt {
+  0% {
+    stroke-width: 0;
+    transform: scaleX( 0 ) translateX( 0.5rem );
+  }
+  100% {
+    transform: scaleX( 1 ) translateX( 0 );
+    stroke-width: 0.5;
+  }
+}
+@keyframes extend-rt-pr {
+  0% {
+    stroke-width: 0;
+    transform: scaleX( 0 ) translateX( 0.5rem );
+  }
+  100% {
+    transform: scaleX( 1 ) translateX( 0 );
+    stroke-width: 0.125;
+  }
+}
+@keyframes extend-rt-ct {
+  0% {
+    transform: scaleX( 0 );
+  }
+  100% {
+    transform: scaleX( 1 );
+  }
+}
+@keyframes extend-dn-ct {
+  0% {
+    transform: scaleY( 0 );
+  }
+  100% {
+    transform: scaleY( 1 );
+  }
+}
+@keyframes extend-dn {
+  0% {
+    stroke-width: 0;
+    transform: scaleY( 0 ) translateY( 0.5rem );
+  }
+  100% {
+    transform: scaleY( 1 ) translateY( 0 );
+    stroke-width: 0.5;
+  }
+}
+@keyframes extend-dn-pr {
+  0% {
+    stroke-width: 0;
+    transform: scaleY( 0 ) translateY( 0.5rem );
+  }
+  100% {
+    transform: scaleY( 1 ) translateY( 0 );
+    stroke-width: 0.125;
+  }
+}
