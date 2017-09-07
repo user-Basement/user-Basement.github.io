@@ -1,0 +1,286 @@
+@import url( "https://fonts.googleapis.com/css?family=Archivo" );
+.title {
+  font-weight: normal;
+  font-size: 4px;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+}
+text,
+p {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+text,
+p {
+  font-size: 3px;
+  fill: #444;
+}
+.rule-lns,
+.cntr-lns {
+  stroke: #444;
+}
+.rule-lns {
+  stroke-width: 0.5;
+}
+.cntr-lns {
+  stroke-width: 0.25;
+}
+.primary {
+  stroke: #bbb;
+  stroke-width: 0.125;
+}
+.secondary {
+  stroke: #eee;
+  stroke-width: 0.0625;
+}
+::selection {
+  background-color: #0dd;
+  color: #eee; fill: #eee;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+aside.cntr,
+aside.cntr > div {
+  height: 100%;
+}
+html {
+  overflow: hidden;
+  font-family: Archivo, sans-serif;
+  font-size: 10px;
+}
+.cntr {
+  left: 50%;
+}
+.cntr,
+.knob {
+  top: 50%;
+}
+.cntr,
+p,
+.knob {
+  position: absolute;
+}
+#grid {
+  user-select: none;
+  cursor: crosshair;
+  width: 10rem;
+  height: 10rem;
+  transform: translate( -50%, -50% ) scale( 10 );
+}
+aside.cntr {
+  width: calc( 50vw - 40rem );
+  right: 0;
+  left: auto;
+}
+aside.cntr,
+.knob {
+  right: 0;
+  transform: translateY( -50% );
+}
+aside.cntr > div {
+  width: 50%;
+}
+aside.cntr > div,
+.bar {
+  position: relative;
+}
+.rt {
+  z-index: -10;
+}
+.ctrl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 70%;
+  left: calc( 50% + 2rem );
+  transform: translate( -50%, -50% );
+}
+.ctrl,
+p {
+  width: 80px;
+}
+p {
+  color: #000;
+  font-size: 11px;
+  text-align: center;
+  top: -43px;
+  left: calc( 50% - 0.125rem );
+  transform: translateX( -50% );
+  letter-spacing: 1px;
+  transition-property: color;
+  transition-duration: 1s;
+}
+#drwing p {
+  top: -30px;
+}
+label {
+  user-select: none;
+  cursor: pointer;
+  margin: auto;
+}
+input {
+  display: none;
+}
+:checked ~ div {
+  background-color: #aaa;
+}
+:checked ~ div p {
+  color: #888;
+}
+:checked ~ div .knob {
+  background-color: #999;
+  right: 18px;
+}
+.bar {
+  width: 40px;
+  height: 18px;
+  margin: auto;
+  background-color: #666;
+  border: none;
+  border-radius: 100px;
+  left: 0rem;
+  transition-property: background-color;
+  transition-duration: 2s;
+}
+.knob {
+  width: 23px;
+  height: 23px;
+  background-color: #000;
+  border-radius: 50%;
+  transition-property: right, background-color;
+  transition-duration: 0.5s, 2s;
+}
+@media( max-aspect-ratio: 100/101 ) { 
+  html{ font-size: 1.05vw }  
+  .lt {
+    transform: translateY( 50% );
+  }
+}
+@media( min-aspect-ratio: 1/1 ) and ( max-height: 475px ) { 
+  .ctrl {
+    height: 90%;
+  }
+  .bar {
+    width: 10rem;
+    height: 4rem;
+  }
+  .knob {
+    width: 5rem;
+    height: 5rem;
+  }
+  :checked ~ div .knob {
+    right: 5rem;
+  }
+  p {
+    font-size: 2.25rem;
+    top: -8.5rem;
+  }
+  #drwing p {
+    top: -5.75rem;
+  }
+}
+@media( max-aspect-ratio: 1/1 ) and ( max-width: 475px ) { 
+  .lt {
+    transform: translateY( 100% );
+  }
+  aside.cntr .ctrl {
+    width: 100%;
+  }
+  .bar {
+    width: 10rem;
+    height: 4rem;
+  }
+  .knob {
+    width: 5rem;
+    height: 5rem;
+  }
+  :checked ~ div .knob {
+    right: 5rem;
+  }  
+  p {
+    font-size: 2.25rem;
+    top: -8.5rem;
+  }
+  #drwing p {
+    top: -5.75rem;
+  }
+}
+@media( max-aspect-ratio: 100/101 ) { 
+  aside.cntr {
+    height: calc( 50vh - 44.5rem );
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX( -50% );
+  }
+  aside.cntr > div {
+    width: 100%;
+    height: 50%;
+  }
+  .ctrl {
+    flex-direction: row;
+    width: 500px;
+    height: 8rem;
+    top: calc( 50% + 2.25rem );
+    left: 50%;
+  }  
+  p {
+    top: -40px;
+  }
+  #drwing p {
+    top: -27px;
+  }
+} 
+@media( min-aspect-ratio: 1/1 ) { html{ font-size: 1.05vh } }
+
+@media( max-height: 210px ){ 
+  html{ font-size: 2vh } 
+  .ctrl{ height: 95% } 
+  .bar {
+    width: 6rem;
+    height: 2rem;
+  }
+  .knob {
+    width: 3rem;
+    height: 3rem;
+  }
+  p {
+    font-size: 1.75rem;
+    top: -6rem;
+  }
+  #drwing p {
+    top: -5rem;
+  }
+}
+
+@media( max-width: 210px ){ html{ font-size: 2vw } }
+
+@media( max-height: 95px ){ 
+  html{ font-size: 5vh }
+  .ctrl{ height: 200% } 
+  p {
+    top: -7rem;
+  }
+}
+@media( max-width: 95px ){ html{ font-size: 5vw } }
+
+@media( max-height: 45px ){ 
+  html{ font-size: 10vh } .ctrl{ height: 300% }
+  p {
+    display: none;
+  }
+}
+@media( max-width: 45px ){ html{ font-size: 10vw } }
+
+@media( max-height: 15px ){ html{ font-size: 25vh } .ctrl{ height: 400% } }
+@media( max-width: 15px ){ html{ font-size: 25vw } }
+
+@media( max-height: 5px ){ html{ font-size: 50vh } .ctrl{ height: 500% } }
+@media( max-width: 5px ){ html{ font-size: 50vw } }
+
+@media( max-height: 3px ){ html{ font-size: 100vh } .ctrl{ height: 600% } }
+@media( max-width: 3px ){ html{ font-size: 100vw } }
