@@ -63,15 +63,39 @@ function recalLoop( variable, string ) {
 }
 
 function recalibrate(){
-  var x = select( '.drawing [ x ]' ), y = select( '.drawing [ y ]' ),
-    x1 = select( '.drawing [ x1 ]' ), y1 = select( '.drawing [ y1 ]' ),
-    x2 = select( '.drawing [ x2 ]' ), y2 = select( '.drawing [ y2 ]' ),
-    cx = select( '.drawing [ cx ]' ), cy = select( '.drawing [ cy ]' ),
-    points = select( '.drawing [ points ]' ), d = select( '.drawing [ d ]' ),
-    i = 0, j = 0, k = 0, val = 0,
-    firstChar = '', 
-    firstCharSub = '', firstCharSub2 = '', firstCharSub3 = '', num = 0,
-    subIdx = 0, subIdx2 = 0, subIdx3 = 0;
+  var x = select( '.drawing [ x ], .d-def [ x ]' ),
+      y = select( '.drawing [ y ], .d-def [ y ]' ),
+      x1 = select( '.drawing [ x1 ], .d-def [ x1 ]' ),
+      y1 = select( '.drawing [ y1 ], .d-def [ y1 ]' ),
+      x2 = select( '.drawing [ x2 ], .d-def [ x2 ]' ),
+      y2 = select( '.drawing [ y2 ], .d-def [ y2 ]' ),
+      cx = select( '.drawing [ cx ], .d-def [ cx ]' ),
+      cy = select( '.drawing [ cy ], .d-def [ cy ]' ),
+      r = select( '.drawing [ r ], .d-def [ r ]' ),
+      width = select( '.drawing [ width ], .d-def [ width ]' ),
+      height = select( '.drawing [ height ], .d-def [ height ]' ),
+      points = select( '.drawing [ points ], .d-def [ points ]' ),
+      d = select( '.drawing [ d ], .d-def [ d ]' ),
+      i = 0, j = 0, k = 0, val = 0,
+      firstChar = '', 
+      firstCharSub = '', firstCharSub2 = '', firstCharSub3 = '', num = 0,
+      subIdx = 0, subIdx2 = 0, subIdx3 = 0;
+  
+  for( i = 0; i < r.length; i++ ){ 
+    val = r[ i ].getAttribute( 'r' );
+    val = Number( val ) * 0.8;
+    r[ i ].setAttribute( 'r', val );
+  }
+  for( i = 0; i < height.length; i++ ){ 
+    val = height[ i ].getAttribute( 'height' );
+    val = Number( val ) * 0.8;
+    height[ i ].setAttribute( 'height', val );
+  }  
+  for( i = 0; i < width.length; i++ ){ 
+    val = width[ i ].getAttribute( 'width' );
+    val = Number( val ) * 0.8;
+    width[ i ].setAttribute( 'width', val );
+  }  
   
   recalLoop( x, 'x' ); recalLoop( y, 'y' );
   recalLoop( x1, 'x1' ); recalLoop( y1, 'y1' );
@@ -237,8 +261,8 @@ function zmOnPt( x, y, zoom ){
   halfDimnX = ( zoom / 2 ); xPos = ( x - halfDimnX  ).toString() + ' ';
   halfDimnY = ( zoom / 2 ); yPos = ( y - halfDimnY  ).toString() + ' ';
   
-  xPos = ( x - halfDimnX  ).toString() + ' ';
-  yPos = ( y - halfDimnY  ).toString() + ' ';
+  xPos = ( x - halfDimnX ).toString() + ' ';
+  yPos = ( y - halfDimnY ).toString() + ' ';
   
   newViewBox = xPos + yPos + zoom + ' ' + zoom;
 
@@ -259,9 +283,9 @@ function zoom( evt ) {
       viewBoxAttr = grid.getAttribute( 'viewBox' ),
       viewBoxAry = viewBoxAttr.split( ' ' ),
       oldX = parseFloat( viewBoxAry[ 0 ] ),
-      oldY = parseFloat(viewBoxAry[1]),
-      oldWidth = parseFloat(viewBoxAry[2]),
-      oldHeight = parseFloat(viewBoxAry[3]),
+      oldY = parseFloat( viewBoxAry[ 1 ] ),
+      oldWidth = parseFloat( viewBoxAry[ 2 ] ),
+      oldHeight = parseFloat(viewBoxAry[ 3 ] ),
       newWidth = oldWidth / 2,  // Halving the view width => zoom X2
       newHeight = oldHeight / 2,
       newX = loc.x - newWidth / 2,
@@ -271,8 +295,9 @@ function zoom( evt ) {
 
       interval = setInterval( function() {
         animProgress += animStep;
-        if ( animProgress > 1 )
-        animProgress = 1;
+        if( animProgress > 1 ){
+          animProgress = 1;
+        }
         // Calculate a new viewBox corresponding to out animation progress
         var nextViewBox = [
           oldX + animProgress * ( newX - oldX ),
@@ -281,12 +306,11 @@ function zoom( evt ) {
           oldHeight + animProgress * ( newHeight - oldHeight )
         ];
         grid.setAttribute( "viewBox", nextViewBox.join( ' ' ) );
-        if ( animProgress >= 1 )
-        clearInterval( interval );
+        if ( animProgress >= 1 ){
+          clearInterval( interval );
+        }
     }, 10 );
 }
-
-
 
 var grid = document.getElementById( 'grid' );
 grid.addEventListener( 'dblclick', zoom );
