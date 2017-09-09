@@ -209,6 +209,23 @@ input {
     top: -5.75rem;
   }
 }
+
+.animation {
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  transform-origin: center;
+}
+.tranisition {
+  transition-delay: 1s;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
 @media( max-aspect-ratio: 100/101 ) { 
   aside.cntr {
     height: calc( 50vh - 44.5rem );
